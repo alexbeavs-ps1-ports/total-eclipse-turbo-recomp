@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "total-eclipse-turbo-psx",
+  "name": "Total Eclipse Turbo",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "total-eclipse-turbo-recomp",
+  "rom_identity": {
+    "crc32": [
+      "4cfeb6b5"
+    ],
+    "md5": [
+      "c839f2af2ccbd50de73ed0ad6920d0fd"
+    ],
+    "sha1": [
+      "bcf314d5191047135945d23f7f155a5ea5434b5f"
+    ],
+    "disc_serials": [
+      "SLUS-00021"
+    ],
+    "sizes": [
+      308631792
+    ],
+    "filenames": [
+      "Total Eclipse Turbo (USA).cue",
+      "Total Eclipse Turbo (USA).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "0f7a25e4626bc1b5a6ecbdaa5f4cfa665601c7df965725ddd9d0b3b8a39e6af7"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/total-eclipse-turbo-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "total-eclipse-turbo-*-windows-x64.zip",
+      "linux-x64": "total-eclipse-turbo-*-linux-x64.zip",
+      "macos-arm64": "total-eclipse-turbo-*-macos-arm64.zip",
+      "macos-x64": "total-eclipse-turbo-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "total_eclipse_turbo.exe",
+    "linux": "total_eclipse_turbo",
+    "macos": "total_eclipse_turbo"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/total-eclipse-turbo-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Total Eclipse Turbo"
+id = "SLUS-00021"
+players = 1
+exe = "disc/SLUS_000.21"
+disc = "disc/Total Eclipse Turbo (USA).cue"
+discs = ["disc/Total Eclipse Turbo (USA).cue"]
+disc_serials = ["SLUS-00021"]
+load_address = "0x80010000"
+entry_pc = "0x8004DF74"
+text_size = "0x00092000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Total Eclipse Turbo (USA).bin"
+cue_name = "Total Eclipse Turbo (USA).cue"
+boot_exe = "SLUS_000.21"
+known_sizes = [308631792]
+known_md5 = [
+  "c839f2af2ccbd50de73ed0ad6920d0fd",
+]
+known_sha1 = [
+  "bcf314d5191047135945d23f7f155a5ea5434b5f",
+]
+known_crc32 = [
+  "4cfeb6b5",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Total Eclipse Turbo Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "0f7a25e4626bc1b5a6ecbdaa5f4cfa665601c7df965725ddd9d0b3b8a39e6af7"
